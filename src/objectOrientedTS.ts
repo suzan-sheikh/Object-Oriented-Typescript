@@ -47,17 +47,22 @@ class Person {
 
 class Student extends Person {
   roll: string;
-  constructor(name: string, roll: string){
+  constructor(name: string, roll: string) {
     super(name);
-    this.roll = roll
+    this.roll = roll;
   }
-  studyPerson(){
+  studyPerson() {
     console.log(`student name is ${this.name} and ${this.roll} `);
   }
 }
 
-
 const firstClass = new Person("suzan");
 const SecondClass = new Student("suzan", "22");
 
-SecondClass.studyPerson()
+// SecondClass.studyPerson()
+
+//* type gard
+
+const add = (num1: string | number, num2: number | string) => typeof num1 === "number" && typeof num2 === "number" ? num1 + num2 : num1.toLocaleString() + num2.toString();
+
+console.log(add(10, 10));
