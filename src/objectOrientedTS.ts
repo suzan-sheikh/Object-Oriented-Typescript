@@ -121,18 +121,17 @@ class Teacher extends Per {
 }
 
 const currentUserInfo = (user: Per) => {
-    if(user instanceof Stu){
-      user.doStudy(10)
-    }else if(user instanceof Teacher){
-      user.doTeaching(5)
-    }else{
-      user.getSleep(20)
-    }
-} 
+  if (user instanceof Stu) {
+    user.doStudy(10);
+  } else if (user instanceof Teacher) {
+    user.doTeaching(5);
+  } else {
+    user.getSleep(20);
+  }
+};
 
 const newStu = new Stu("Mr Suzan");
 const teacher = new Teacher("Mr Arif");
-const normalPer = new Per("manus")
+const normalPer = new Per("manus");
 
-// currentUserInfo(normalPer)
-
+currentUserInfo(normalPer)
