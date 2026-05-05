@@ -20,17 +20,44 @@
 
 //* use Parameter Properties
 
-class Animal {
-  constructor(
-    public name: string,
-    public species: string,
-    public sound: string,
-  ) {}
-  makeSound() {
-    console.log(`${this.name} and ${this.sound}`);
+// class Animal {
+//   constructor(
+//     public name: string,
+//     public species: string,
+//     public sound: string,
+//   ) {}
+//   makeSound() {
+//     console.log(`${this.name} and ${this.sound}`);
+//   }
+// }
+
+// const classToObject = new Animal("DOG", "BD dog", "Special");
+
+// classToObject.makeSound();
+
+class Person {
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+  normalPerson() {
+    console.log(`normal name is ${this.name}`);
   }
 }
 
-const classToObject = new Animal("DOG", "BD dog", "Special");
+class Student extends Person {
+  roll: string;
+  constructor(name: string, roll: string){
+    super(name);
+    this.roll = roll
+  }
+  studyPerson(){
+    console.log(`student name is ${this.name} and ${this.roll} `);
+  }
+}
 
-classToObject.makeSound();
+
+const firstClass = new Person("suzan");
+const SecondClass = new Student("suzan", "22");
+
+SecondClass.studyPerson()
