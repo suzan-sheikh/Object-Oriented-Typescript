@@ -10,31 +10,27 @@
 //     this.sound = sound;
 //   }
 //   makeSound() {
-//     console.log(`${this.name} is making sound ${this.sound}`);
+//     console.log(`${this.name} and ${this.sound}`);
 //   }
 // }
 
-// const dog = new Animal("dogesh bhai", "god", "ghew thew");
-// const cat = new Animal("cat for all", "cat", "mew mew");
+// const classToObject = new Animal("DOG", "BD dog", "Special");
 
-// dog.makeSound();
-// cat.makeSound();
+// classToObject.makeSound();
+
+//* use Parameter Properties
 
 class Animal {
-  name: string;
-  species: string;
-  sound: string;
-  constructor(nam: string, doron: string, sabdo: string) {
-    this.name = nam;
-    this.species = doron;
-    this.sound = sabdo;
-  }
-
+  constructor(
+    public name: string,
+    public species: string,
+    public sound: string,
+  ) {}
   makeSound() {
-    console.log(`${this.name} is making sound ${this.sound}`);
+    console.log(`${this.name} and ${this.sound}`);
   }
 }
 
-const dog = new Animal("DOG", "dog", "special");
+const classToObject = new Animal("DOG", "BD dog", "Special");
 
-dog.makeSound();
+classToObject.makeSound();
