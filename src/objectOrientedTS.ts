@@ -64,7 +64,6 @@ const SecondClass = new Student("suzan", "22");
 
 type NewType = string | number;
 
-
 const add = (num1: NewType, num2: NewType) =>
   typeof num1 === "number" && typeof num2 === "number"
     ? num1 + num2
@@ -75,21 +74,65 @@ const add = (num1: NewType, num2: NewType) =>
 //* in guard
 
 type NormalUser = {
-  name: string
-}
+  name: string;
+};
 type AdminUser = {
   name: string;
   roll: string;
-}
+};
 
 const getUserInfo = (user: NormalUser | AdminUser) => {
-  if("roll" in user){
+  if ("roll" in user) {
     console.log(`this user name is ${user.name} and Roll is ${user.roll}`);
-  }else{
+  } else {
     console.log(`Only name is ${user.name}`);
+  }
+};
+
+// getUserInfo({ name: "suzan", roll: "2" });
+
+//* Instance guard
+
+class Per {
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+  getSleep(sleepTime: number) {
+    console.log(`${this.name} is sleep ${sleepTime}`);
+  }
+}
+class Stu extends Person {
+  constructor(name: string) {
+    super(name);
+  }
+  doStudy(studyHours: number) {
+    console.log(`${this.name} is study ${studyHours}`);
   }
 }
 
-getUserInfo({name: 'suzan', roll: '2'})
+class Teacher extends Per {
+  constructor(name: string) {
+    super(name);
+  }
+  doTeaching(teachingTime: number) {
+    console.log(`${this.name} is Teachin Time is ${teachingTime}`);
+  }
+}
 
+const currentUserInfo = (user: Per) => {
+    if(user instanceof Stu){
+      user.doStudy(10)
+    }else if(user instanceof Teacher){
+      user.doTeaching(5)
+    }else{
+      user.getSleep(20)
+    }
+} 
+
+const newStu = new Stu("Mr Suzan");
+const teacher = new Teacher("Mr Arif");
+const normalPer = new Per("manus")
+
+// currentUserInfo(normalPer)
 
