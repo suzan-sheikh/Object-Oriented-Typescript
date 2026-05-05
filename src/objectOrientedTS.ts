@@ -72,5 +72,24 @@ const add = (num1: NewType, num2: NewType) =>
 
 // console.log(add(10, 10));
 
+//* in guard
+
+type NormalUser = {
+  name: string
+}
+type AdminUser = {
+  name: string;
+  roll: string;
+}
+
+const getUserInfo = (user: NormalUser | AdminUser) => {
+  if("roll" in user){
+    console.log(`this user name is ${user.name} and Roll is ${user.roll}`);
+  }else{
+    console.log(`Only name is ${user.name}`);
+  }
+}
+
+getUserInfo({name: 'suzan', roll: '2'})
 
 
