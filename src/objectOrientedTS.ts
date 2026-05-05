@@ -60,9 +60,17 @@ const firstClass = new Person("suzan");
 const SecondClass = new Student("suzan", "22");
 
 // SecondClass.studyPerson()
-
 //* type gard
 
-const add = (num1: string | number, num2: number | string) => typeof num1 === "number" && typeof num2 === "number" ? num1 + num2 : num1.toLocaleString() + num2.toString();
+type NewType = string | number;
 
-console.log(add(10, 10));
+
+const add = (num1: NewType, num2: NewType) =>
+  typeof num1 === "number" && typeof num2 === "number"
+    ? num1 + num2
+    : num1.toLocaleString() + num2.toString();
+
+// console.log(add(10, 10));
+
+
+
